@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <title>Logic Gate</title>
+  <script language="JavaScript">
+    function gateCalculation() {
+	 var gate = document.getElementById("logicGate").value;
+	 var out;
+         var inputA = parseInt(document.getElementById("firstInput").value);
+	 var inputB = parseInt(document.getElementById("secondInput").value);
+
+	
+
+	 if (gate === "AND"){
+ 	 	var out = inputA + inputB;
+		if (out == 2){
+			out=1;
+		}
+		document.getElementById("display").innerHTML = out;
+		document.getElementById("picture").src = "AND gate.jpg";
+	 }
+	 if (gate === "OR"){
+ 	 	var out = inputA * inputB;
+		document.getElementById("display").innerHTML = out;
+		document.getElementById("picture").src = "OR gate.jpg";	
+	 }
+
+	if (gate === "XOR"){
+ 	 	var out = inputA + inputB;
+		if (out == 1){
+			out=1;
+		} else{
+			out=0;
+		}
+		document.getElementById("display").innerHTML = out;
+		document.getElementById("picture").src = "XOR gate.jpg";
+	}
+	 if (gate === "NAND"){
+ 	 	var out = inputA + inputB;
+		if (out == 2){
+			out=0;
+		}
+		else if (out == 0){
+			out=1;
+		}
+		document.getElementById("display").innerHTML = out;
+		document.getElementById("picture").src = "NAND gate.jpg";
+	}
+	 if (gate === "NOR"){
+ 	 	var out = inputA + inputB;
+		if (out == 1 || out == 2){
+			out=0;
+		}
+		else if (out == 0){
+			out=1;
+		}
+		document.getElementById("display").innerHTML = out;
+		document.getElementById("picture").src = "NOR gate.jpg";
+	}
+    }
+  </script>
+  </head>
+
+<body>
+  <h1>Logical Gates</h1><p>
+  <form>
+     <label><b>Please enter first input</b></label>
+     <input type="number" int="yourNumber" id="firstInput">
+     
+     <label><b>Please enter second input</b></label>
+     <input type="number" int="yourNumber" id="secondInput"><p>
+
+     <label><b>What logic gate would you like?</b></label>
+     <select id="logicGate">
+       <option value="AND">AND</option>
+       <option value="OR">OR</option>
+       <option value="XOR">XOR</option>
+       <option value="NAND">NAND</option>
+       <option value="NOR">NOR</option>
+     </select>
+  </form>
+  
+  <input type="submit" onclick="gateCalculation();" ><br/>
+  <img id="picture" src="OR gate.jpg" width="160" height="120"> 
+  <p><b>Output is:</b></p>
+  <p id="display">Please submit inputs for answer.</p>
+
+</body>
+
+</html>
